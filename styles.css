@@ -1,0 +1,15 @@
+// script.js
+window.addEventListener('load', function() {
+    const storedTheme = localStorage.getItem('theme'); 
+    if (storedTheme === 'dark') {
+        document.body.classList.add('dark-theme');
+    } else {
+        document.body.classList.remove('dark-theme');
+    }
+
+    const toggleButton = document.getElementById('toggle-theme');
+    toggleButton.addEventListener('click', function() {
+        document.body.classList.toggle('dark-theme');
+        localStorage.setItem('theme', document.body.classList.contains('dark-theme') ? 'dark' : 'light');
+    });
+});
